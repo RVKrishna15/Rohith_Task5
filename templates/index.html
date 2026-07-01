@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Browser Chat</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<h1>Browser Chat Application</h1>
+
+<div id="chat"></div>
+
+<input
+type="text"
+id="message"
+placeholder="Type your message">
+
+<button id="sendBtn">Send</button>
+
+<script>
+
+async function sendMessage(){
+
+    let message=document.getElementById("message").value;
+
+    if(message.trim()=="")
+        return;
+
+    await fetch("/send",{
+
+        method:"POST",
+
+        headers:{
+            "Content-Type":"application/json"
+        },
+
+        body:JSON.stringify({
+            message:message
+        })
+
+    });
+
+    document.getElementById("message").value="";
+
+    loadMessages();
+
+}
+
+
+async function loadMessages(){
+
+    let response=await fetch("/messages");
+
+    let data=await response.json();
+
+    let chat=document.getElementById("chat");
+
+    chat.innerHTML="";
+
+    for(let i=0;i<data.length;i++){
+
+        chat.innerHTML += "<p>"+data[i]+"</p>";
+
+    }
+
+}
+
+
+document.getElementById("sendBtn").addEventListener("click",sendMessage);
+
+document.getElementById("message").addEventListener("keypress",function(e){
+
+    if(e.key==="Enter")
+        sendMessage();
+
+});
+
+setInterval(loadMessages,1000);
+
+loadMessages();
+
+</script>
+
+</body>
+</html>
