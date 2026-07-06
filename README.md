@@ -2,15 +2,15 @@
 
 ## Description
 
-Browser Chat Application is a beginner-friendly web application built using Python and Flask. It allows users to send and receive messages through a browser interface. This project demonstrates basic web development concepts, including Flask, HTML, CSS, and JavaScript.
+Browser Chat Application is a simple web application built using Python and Flask. It provides a browser-based interface where users can interact through a chat page. The project demonstrates the fundamentals of Flask, HTML, and CSS.
 
 ## Features
 
-- Send messages through the browser
-- Simple and responsive user interface
-- Real-time message display
-- Easy to use
+- Simple browser-based chat interface
+- Clean and responsive design
 - Beginner-friendly project
+- Built using Flask
+- Easy to understand and modify
 
 ## Technologies Used
 
@@ -18,7 +18,6 @@ Browser Chat Application is a beginner-friendly web application built using Pyth
 - Flask
 - HTML
 - CSS
-- JavaScript
 
 ## Project Structure
 
@@ -26,25 +25,24 @@ Browser Chat Application is a beginner-friendly web application built using Pyth
 BrowserChat/
 │
 ├── app.py
-├── requirements.txt
 ├── README.md
+├── requirements.txt
 │
 ├── templates/
 │   └── index.html
 │
 └── static/
-    ├── style.css
-    └── script.js
+    └── style.css
 ```
 
 ## Installation
 
-1. Clone the repository.
+1. Install Python 3.
 
-2. Install the required package:
+2. Install Flask:
 
 ```bash
-pip install flask
+pip install Flask
 ```
 
 3. Run the application:
@@ -59,13 +57,15 @@ py app.py
 http://127.0.0.1:5000
 ```
 
+*(If your application runs on another port, such as 5001, use that instead.)*
+
 ## Future Improvements
 
-- User login system
-- Multiple chat rooms
-- Message timestamps
-- File sharing
-- Emoji support
+- Real-time messaging
+- Multiple users
+- Chat history
+- User authentication
+- Better UI design
 
 ## Author
 
